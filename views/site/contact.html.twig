@@ -1,0 +1,37 @@
+{% extends "layout_site.html.twig" %}
+
+{% block title %}Nous contacter{% endblock %}
+
+{% block metadescription %}
+{% endblock %}
+
+{% block metakeywords %}
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+ <div class="col-sm-6">
+  <div class="well">
+   <strong>SOGEDEP</strong><br />
+   3 rue Antoine Laurent de Lavoisier<br />
+   7630 Sotteville les Rouen</br>
+   T&eacute;l : 02 32 19 69 90<br />
+   Fax : 02 32 19 69 89<br /><br />
+   <center>
+    <a href="{{ path('demande-de-depannage') }}">
+     <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span>&nbsp;&nbsp;Demande de d&eacute;pannage</button>
+    </a>
+    <br /><br />
+    <a href="mailto:contact@sogedep.fr">
+     <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;Nous contacter par mail</button>
+    </a>
+   </center>
+  </div>
+ </div>
+ <div class="col-sm-4">
+  <img src="{{ asset('/images/carte.png') }}" class="img-responsive" /><br />
+ </div>
+</div>
+
+{% endblock %}

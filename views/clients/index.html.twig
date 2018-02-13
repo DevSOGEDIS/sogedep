@@ -1,0 +1,33 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Clients{% endblock %}
+
+{% block body %}
+  
+  <h2>Clients</h2>
+  <table class="table table-hover">
+   <thead>
+    <tr>
+     <th>Nom</th>
+     <th>Adresse</th>
+     <th>CodePostal</th>
+     <th>Ville</th>
+     <th>Email</th>
+     <th>Telephone</th>
+    </tr>
+   </thead>
+   <tbody>
+   {% for client in clients %}
+    <tr>
+     <td><a href="{{ path('client', { 'id': client.id }) }}">{{ client.prenom }} {{ client.nom }}</a></td>
+     <td>{{ client.adresse1 }}</td>
+     <td>{{ client.codepostal }}</td>
+     <td>{{ client.ville }}</td>
+     <td>{{ client.email }}</td>
+     <td>{{ client.telephone }}</td>
+    </tr>
+   {% endfor %}
+   </tbody>
+  </table>
+ 
+ {% endblock %}

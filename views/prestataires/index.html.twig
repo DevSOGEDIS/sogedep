@@ -1,0 +1,33 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Prestataires{% endblock %}
+
+{% block body %}
+
+  <h2>Prestataires</h2>
+  <table class="table table-hover">
+   <thead>
+    <tr>
+     <th>Nom</th>
+     <th>CompteSogedis</th>
+     <th>CompteSogedep</th>
+     <th>CompteCompta</th>
+     <th>Email</th>
+     <th>Telephone</th>
+    </tr>
+   </thead>
+   <tbody>
+   {% for prestataire in prestataires %}
+    <tr>
+     <td><a href="{{ path('prestataire', { 'id': prestataire.id }) }}">{{ prestataire.prenom }} {{ prestataire.nom }}</a></td>
+     <td>{{ prestataire.comptesogedis }}</td>
+     <td>{{ prestataire.comptesogedep }}</td>
+     <td>{{ prestataire.comptecompta }}</td>
+     <td>{{ prestataire.email }}</td>
+     <td>{{ prestataire.telephone }}</td>
+    </tr>
+   {% endfor %}
+   </tbody>
+  </table>
+
+{% endblock %}

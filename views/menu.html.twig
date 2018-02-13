@@ -1,0 +1,51 @@
+<div class="collapse navbar-collapse" id="mynavbar">
+ <ul class="nav navbar-nav">
+  <li class="dropdown">
+   <a class="dropdown-toggle" data-toggle="dropdown" href="{{ path('clients') }}" title="Clients"><span class="glyphicon glyphicon-user"></span></a>
+   <ul class="dropdown-menu">
+    <li><a href="{{ path('clients') }}"><span class="glyphicon glyphicon-th-list"></span> Liste des clients</a></li>
+    <li><a href="{{ path('addclient') }}"><span class="glyphicon glyphicon-pencil"></span> Ajouter un client</a></li>
+    <li><a href="{{ path('searchclient') }}"><span class="glyphicon glyphicon-search"></span> Rechercher un client</a></li> 
+   </ul>
+  </li>
+
+  <li class="dropdown">
+   <a class="dropdown-toggle" data-toggle="dropdown" href="{{ path('dossiers') }}" title="Dossiers"><span class="glyphicon glyphicon-folder-open"></span></a>
+   <ul class="dropdown-menu">
+    <li><a href="{{ path('dossiers') }}"><span class="glyphicon glyphicon-th-list"></span> Liste des dossiers</a></li>
+    <li><a href="{{ path('adddossier') }}"><span class="glyphicon glyphicon-pencil"></span> Ajouter un dossier</a></li>
+    <li><a href="{{ path('searchdossier') }}"><span class="glyphicon glyphicon-search"></span> Rechercher un dossier</a></li> 
+   </ul>
+  </li>
+
+  <li class="dropdown">
+   <a class="dropdown-toggle" data-toggle="dropdown" href="{{ path('marques') }}" title="Marques"><span class="glyphicon glyphicon-tower"></span></a>
+   <ul class="dropdown-menu">
+    <li><a href="{{ path('marques') }}"><span class="glyphicon glyphicon-th-list"></span> Liste des marques</a></li>
+    <li><a href="{{ path('addmarque') }}"><span class="glyphicon glyphicon-pencil"></span> Ajouter une marque</a></li>
+    <li><a href="{{ path('searchmarque') }}"><span class="glyphicon glyphicon-search"></span> Rechercher une marque</a></li>
+   </ul>
+  </li>
+
+  <li class="dropdown">
+   <a class="dropdown-toggle" data-toggle="dropdown" href="{{ path('prestataires') }}" title="Prestataires"><span class="glyphicon glyphicon-wrench"></span></a>
+   <ul class="dropdown-menu">
+    <li><a href="{{ path('prestataires') }}"><span class="glyphicon glyphicon-th-list"></span> Liste des prestataires</a></li>
+    <li><a href="{{ path('addprestataire') }}"><span class="glyphicon glyphicon-pencil"></span> Ajouter un prestataire</a></li>
+    <li><a href="{{ path('searchprestataire') }}"><span class="glyphicon glyphicon-search"></span> Rechercher un prestataire</a></li>
+   </ul>
+  </li>
+
+  <li class="dropdown">
+   <a class="dropdown-toggle" data-toggle="dropdown" href="{{ path('utilisateurs') }}" title="Utilisateurs"><span class="glyphicon glyphicon-apple"></span></a>
+   <ul class="dropdown-menu">
+    <li><a href="{{ path('utilisateurs') }}"><span class="glyphicon glyphicon-th-list"></span> Liste des utilisateurs</a></li>
+    <li><a href="{{ path('addutilisateur') }}"><span class="glyphicon glyphicon-pencil"></span> Ajouter un utilisateur</a></li>
+    <li><a href="{{ path('searchutilisateur') }}"><span class="glyphicon glyphicon-search"></span> Rechercher un utilisateur</a></li>
+   </ul>
+  </li>
+  </ul>
+
+ {{ include("menu_bandeau_droit.html.twig") }}
+
+</div>

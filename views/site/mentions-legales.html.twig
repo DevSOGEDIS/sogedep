@@ -1,0 +1,56 @@
+{% extends "layout_site.html.twig" %}
+
+{% block title %}Mentions legales{% endblock %}
+
+{% block metadescription %}
+{% endblock %}
+
+{% block metakeywords %}
+{% endblock %}
+
+{% block body %}
+<h1>Mentions legales</h1>
+<br />
+<div class="list-group"> 
+ <a href="#" class="list-group-item">
+  <h4 class="list-group-item-heading">Raison sociale :</h4>
+  <p class="list-group-item-text">S.A.S SOGEDEP</p>
+ </a> 
+
+ <a href="#" class="list-group-item">
+  <h4 class="list-group-item-heading">Si&egrave;ge social :</h4>
+  <p class="list-group-item-text">3 rue Antoine Laurent de Lavoisier - 76300 Sotteville les Rouen</p>
+ </a>
+
+ <a href="#" class="list-group-item">
+  <h4 class="list-group-item-heading">N&deg; de t&eacute;l&eacute;phone :</h4>
+  <p class="list-group-item-text"><b>02 32 19 69 90</b></p>
+ </a>
+
+ <a href="#" class="list-group-item">
+  <h4 class="list-group-item-heading">N&deg; d'inscription au registre du commerce et des soci&eacute;t&eacute;s :</h4>
+  <p class="list-group-item-text">R.C. Rouen 2009 B 1074</p>
+ </a>
+
+ <a href="#" class="list-group-item">
+  <h4 class="list-group-item-heading">Capital social :</h4>
+  <p class="list-group-item-text">50 000&euro;</p>
+ </a> 
+
+ <a href="#" class="list-group-item">
+  <h4 class="list-group-item-heading">Directeur de la publication :</h4>
+  <p class="list-group-item-text">Mr Herv&eacute; CORNU</p>
+ </a>
+
+ <a href="#" class="list-group-item">
+  <h4 class="list-group-item-heading">Responsable de la r&eacute;daction :</h4>
+  <p class="list-group-item-text">Mr Herv&eacute; CORNU</p>
+ </a>
+</div>
+<br />
+<center>
+ <a href="{{ path('contact') }}">
+  <button type="button" class="btn btn-primary">Nous contacter</button>
+ </a>
+</center>
+{% endblock %}

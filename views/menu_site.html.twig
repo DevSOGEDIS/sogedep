@@ -1,0 +1,31 @@
+<div class="collapse navbar-collapse" id="mynavbar">
+ <ul class="nav navbar-nav">
+  <li class="dropdown">
+   <a class="dropdown-toggle" data-toggle="dropdown" href="#">&Agrave; propos de&nbsp;SOGEDEP</a>
+   <ul class="dropdown-menu">
+    <li><a href="{{ path('entreprise') }}">L'entreprise</a></li>
+    <li><a href="{{ path('fonctionnement') }}">Le fonctionnement</a></li>
+   </ul>
+  </li>
+  <li class="dropdown">
+   <a class="dropdown-toggle" data-toggle="dropdown" href="#">R&eacute;seau et&nbsp;partenaires</a>
+   <ul class="dropdown-menu">
+    <li><a href="{{ path('depannage') }}">D&eacute;pannage</a></li>
+    <li><a href="{{ path('charte') }}">Charte qualit&eacute;</a></li>
+   </ul>      
+  </li>
+  <li class="dropdown">
+   <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-phone-alt"></span> Le centre d'appels</a>
+   <ul class="dropdown-menu">
+    <li><a href="{{ path('callcenter') }}">Pr&eacute;sentation</a></li>
+    <li><a href="{{ path('fonctionnement-callcenter') }}">Le fonctionnement</a></li>
+   </ul>      
+  </li>
+  <li>
+   <a href="{{ path('contact') }}"><span class="glyphicon glyphicon-envelope"></span> Contact</a>
+  </li>
+ </ul>
+
+ {{ include("menu_bandeau_droit.html.twig") }}
+
+</div>

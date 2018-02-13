@@ -1,0 +1,24 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Client{% endblock %}
+
+{% block body %}
+  
+ <h2>{{ client.prenom }} {{ client.nom }}</h2>
+ <table class="table table-hover">
+  <tbody>
+   <tr><td>Adresse 1</td><td>{{ client.adresse1 }}</td></tr>
+   <tr><td>Adresse 2</td><td>{{ client.adresse2 }}</td></tr>
+   <tr><td>Adresse 3</td><td>{{ client.adresse3 }}</td></tr>
+   <tr><td>Code postal</td><td>{{ client.codepostal }}</td></tr>
+   <tr><td>Ville</td><td>{{ client.ville }}</td></tr>
+   <tr><td>Email</td><td><a href="mailto:{{ client.email }}">{{ client.email }}</a></td></tr>
+   <tr><td>Initiales</td><td>{{ client.initiales }}</td></tr>
+   <tr><td>Pseudo</td><td>{{ client.pseudo }}</td></tr>
+   <tr><td>Password</td><td>{{ client.password }}</td></tr>
+   <tr><td>Salt</td><td>{{ client.salt }}</td></tr>
+   <tr><td>Role</td><td>{{ client.role }}</td></tr>
+  </tbody>
+ </table> 
+ 
+{% endblock %}

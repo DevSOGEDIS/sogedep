@@ -1,0 +1,55 @@
+body
+ {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding-top: 75px;
+  color: #00355D;
+ }
+
+#menu_gauche
+ {
+  width: 193px;
+  font-size: 18px;
+  color: #FFF;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  display: block;
+  padding: 15px 0 0 0;
+  background-color: #A0BEEF;	
+ }
+
+#div_demandedepannage
+ {
+  width: 193px;
+  height: 125px;
+  background: url(/images/fd_divcontact.png);
+  margin: 8px 0 0 0;
+  font-size: 10px;
+  text-align: center;
+ }
+
+#div_demandedepannage a
+ {
+  font-size: 18px;
+  color: #FFF;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  display: block;
+  padding: 15px 0 0 0;
+ }
+
+.navbar-brand img
+ {
+  width: 120px; 
+ } 
+
+footer
+ {
+  border-top: 1px solid #ccc;
+  padding-top: 30px;
+  text-align: center;
+ } 
