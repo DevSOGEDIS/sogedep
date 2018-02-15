@@ -266,7 +266,7 @@ class User implements UserInterface
 
   public function setEmail($email)
    {
-    $this->email = $email;
+    $this->email = strtolower(trim($email));
     return $this;
    }
 
@@ -280,7 +280,7 @@ class User implements UserInterface
 
   public function setPassword($password)
    {
-    $this->password = $password;
+    $this->password = trim($password);
     return $this;
    }
 
@@ -291,7 +291,7 @@ class User implements UserInterface
 
   public function setTelephone($telephone)
    {
-    $this->telephone = $telephone;
+    $this->telephone = trim($telephone);
     return $this;
    }
 
@@ -302,7 +302,7 @@ class User implements UserInterface
 
   public function setSalt($salt)
    {
-    $this->salt = $salt;
+    $this->salt = trim($salt);
     return $this;
    }
 
@@ -313,7 +313,7 @@ class User implements UserInterface
 
   public function setRole($role)
    {
-    $this->role = $role;
+    $this->role = trim($role);
     return $this;
    }
 

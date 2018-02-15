@@ -14,13 +14,13 @@ class UserDAO extends DAO implements UserProviderInterface
     $sql = "SELECT * FROM utilisateurs WHERE role != 'CLIENT' AND role != 'PRESTATAIRE'";
     $result = $this->getDb()->fetchAll($sql);
 
-    $utilisateurs = array();
+    $users = array();
     foreach ($result as $row)
      {
-      $utilisateurId = $row['id'];
-      $utilisateurs[$utilisateurId] = $this->buildDomainObject($row);
+      $userId = $row['id'];
+      $users[$userId] = $this->buildDomainObject($row);
      }
-    return $utilisateurs;
+    return $users;
    }
 
   public function find($id)

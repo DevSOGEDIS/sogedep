@@ -36,7 +36,7 @@ class HistoriqueDAO extends DAO
    {
     $dossier = $this->dossierDAO->find($dossierId);
 
-    $sql = "SELECT * FROM historiques WHERE iddossier = ? ORDER BY id DESC";
+    $sql = "SELECT * FROM historiques WHERE iddossier = ? ORDER BY id";
     $result = $this->getDb()->fetchAll($sql, array($dossierId));
 
     $historiques = array();
