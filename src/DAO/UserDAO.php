@@ -11,7 +11,7 @@ class UserDAO extends DAO implements UserProviderInterface
  {
   public function findAll()
    {
-    $sql = "SELECT * FROM utilisateurs WHERE role != 'CLIENT' AND role != 'PRESTATAIRE'";
+    $sql = "SELECT * FROM utilisateurs";
     $result = $this->getDb()->fetchAll($sql);
 
     $users = array();
