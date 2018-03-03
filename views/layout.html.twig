@@ -1,44 +1,69 @@
-{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-{% spaceless %}
-<!doctype html> 
+<!doctype html>
 <html>
 
-<head>
- <meta charset="utf-8" />
- <meta http-equiv="X-UA-Compatible" content="IE=edge" />
- <meta name="viewport" content="width=device-width, initial-scale=1" />
- <link href="{{ asset('/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
- <link href="{{ asset('/css/site.css') }}" rel="stylesheet" />
- <title>Sogedep - {% block title %}{% endblock %}</title>
-</head>
+ <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="dev@sogedis.fr">
+  <meta name="text:Email" content="contact@sogedep.fr" />
+  <meta name="text:Address" content="3 Rue Antoine Laurent de Lavoisier. 76300 SOTTEVILLE-LES-ROUEN">
+  <link href="{{ asset('/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('/css/sogedep.css') }}" rel="stylesheet" />
+  <title>SOGEDEP - {% block title %}{% endblock %}</title> 
+  <meta name="description" content="{% block metadescription %}{% endblock %}" />
+  <meta name="keywords" content="{% block metakeywords %}{% endblock %}" />
+  <meta name="robots" content="index, follow, all" />
+ </head>
 
-<body>
-
- <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-   <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
-     <span class="icon-bar"></span>
-     <span class="icon-bar"></span>
-     <span class="icon-bar"></span>                        
-    </button>
-    <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('/images/logo_menu.png') }}" alt="Sogedep" /></a>
+ <body>
+  <div class="container">
+   <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+     <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-target">
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('/images/logo_menu.png') }}" alt="Sogedep" /></a>
+     </div>
+     {{ include("menu.html.twig") }}
+    </div>
+   </nav>
+   <div class="container">
+    <div class="row">
+    <div class="col-sm-2">{{ include("menu_depannage.html.twig") }}</div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-9">{% block body %}{% endblock %}</div>
    </div>
-   {{ include("menu.html.twig") }}
-  </div>
- </nav>
+   <br /><br />
+   {{ include("references.html.twig") }}
+   <footer>
+    &copy; SOGEDEP | 
+    <a href="{{ path('contact') }}" title="Nous contacter">Nous contacter</a> | 
+    <a href="{{ path('mentions-legales') }}" title="Mentions l&eacute;gales">Mentions l&eacute;gales</a> | 
+    <a href="https://www.sogedis.fr/" target="_blank">Sogedis</a>
+   </footer>
+   {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    {{ app.user.id }}<br />  
+    {{ app.user.username }}<br />
+    {{ app.user.comptesogedis }}<br />
+    {{ app.user.comptesogedep }}<br />
+    {{ app.user.comptecompta }}<br />
+    {{ app.user.nom }}<br />
+    {{ app.user.prenom }}<br />
+    {{ app.user.adresse1 }}<br />
+    {{ app.user.adresse2 }}<br />
+    {{ app.user.adresse3 }}<br />
+    {{ app.user.codepostal }}<br />
+    {{ app.user.ville }}<br />
+    {{ app.user.telephone }}<br />
+    {{ app.user.role }}<br />
+   {% endif %} 
+  </div> 
+  <script src="{{ asset('/lib/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+ </body>
 
- <div class="container">
-  
-  {% block body %}{% endblock %}
-
-  <footer>
-   <a href="https://www.sogedis.fr/" target="_blank">Sogedis</a>
-  </footer>
- </div>
- <script src="{{ asset('/lib/jquery/jquery.min.js') }}"></script>
- <script src="{{ asset('/lib/bootstrap/js/bootstrap.min.js') }}"></script>
-</body>
 </html>
-{% endspaceless %}
-{% endif %} 

@@ -1,4 +1,4 @@
-{% extends "layout_site.html.twig" %}
+{% extends "layout.html.twig" %}
 
 {% block title %}Acceuil{% endblock %}
 
@@ -16,12 +16,12 @@
 <h2>SOGEDEP vous propose un r&eacute;seau national de service apr&egrave;s-vente.</h2>
 
 <div class="row">
- <div class="col-sm-3"><img src="{{ asset('/images/home.jpg') }}" class="img-responsive" /></div>
+ <div class="col-sm-3"><img src="{{ asset('/images/home.jpg') }}" class="img-responsive" alt="Saisie d'un dossier" /></div>
   <div class="col-sm-9">
-   <article> Nous avons cr&eacute;&eacute; un centre d&rsquo;appel serveur automatis&eacute; (call center), et utilisons un syst&egrave;me informatique <a href="https://www.technic-soft.fr" alt="Technic-Soft" target="_blank">Technic-Soft</a> sp&eacute;cialis&eacute; dans le domaine du SAV avec un cahier des charges adapt&eacute; au besoin des constructeurs et des distributeurs.</article>
+   <article> Nous avons cr&eacute;&eacute; un centre d&rsquo;appel serveur automatis&eacute; (call center), et utilisons un syst&egrave;me informatique <a href="https://www.technic-soft.fr" title="Technic-Soft" target="_blank">Technic-Soft</a> sp&eacute;cialis&eacute; dans le domaine du SAV avec un cahier des charges adapt&eacute; au besoin des constructeurs et des distributeurs.</article>
    <br />
    <article>Nous avons s&eacute;lectionn&eacute; par crit&egrave;re de qualit&eacute;s professionnelles 170&nbsp;centres services agr&eacute;&eacute;s sur tout le territoire national. Chaque station adh&egrave;re &agrave; SOGEDEP via une charte de qualit&eacute;.</article>
   </div>
  </div>
-
-{% endblock %}
+</div>
+{% endblock %} 

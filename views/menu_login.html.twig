@@ -1,0 +1,23 @@
+<div class="collapse navbar-collapse" id="navbar-collapse-target">
+ <ul class="nav navbar-nav navbar-right">
+ {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+  <li class="dropdown">
+   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-user"></span> {{ app.user.prenom }} <b class="caret"></b>
+   </a>
+   <ul class="dropdown-menu">
+    <li><a href="{{ path('logout') }}">Se deconnecter</a></li>
+   </ul>
+  </li>
+  {% else %}
+  <li class="dropdown">
+   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-user"></span> <b class="caret"></b>
+   </a>
+   <ul class="dropdown-menu">
+    <li><a href="{{ path('login') }}">Se connecter</a></li>
+   </ul>
+  </li>
+  {% endif %}
+ </ul>
+</div>

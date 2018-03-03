@@ -1,10 +1,12 @@
-<?php
+<?php 
 
 namespace SOGEDEP\Domain;
+
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class User implements UserInterface
  {
+
   /**
    * User id.
    *
@@ -13,7 +15,7 @@ class User implements UserInterface
   private $id;
 
   /**
-   * User email.
+   * User username.
    *
    * @var string
    */
@@ -87,14 +89,7 @@ class User implements UserInterface
    *
    * @var string
    */
-  private $ville;  
-
-  /**
-   * User email.
-   *
-   * @var string
-   */
-  private $email; 
+  private $ville;
 
   /**
    * User password.
@@ -108,21 +103,22 @@ class User implements UserInterface
    *
    * @var string
    */
-  private $telephone;  
+  private $telephone; 
 
   /**
-   * User salt.
+   * Salt that was originally used to encode the password.
    *
    * @var string
    */
   private $salt;
 
   /**
-   * User role.
+   * Role.
+   * Values : ROLE_USER or ROLE_ADMIN.
    *
    * @var string
    */
-  private $role;     
+  private $role;
 
   public function getId()
    {
@@ -138,16 +134,17 @@ class User implements UserInterface
   /**
    * @inheritDoc
    */
+
   public function getUsername()
    {
     return $this->username;
    }
 
-  public function setUsername($email)
+  public function setUsername($username)
    {
-    $this->username = $email;
+    $this->username = $username;
     return $this;
-   }  
+   }
 
   public function getComptesogedis()
    {
@@ -259,20 +256,10 @@ class User implements UserInterface
     return $this;
    }   
 
-  public function getEmail()
-   {
-    return $this->email;
-   }
-
-  public function setEmail($email)
-   {
-    $this->email = $email;
-    return $this;
-   }
-
   /**
    * @inheritDoc
    */
+
   public function getPassword()
    {
     return $this->password;
@@ -294,6 +281,10 @@ class User implements UserInterface
     $this->telephone = $telephone;
     return $this;
    }
+
+  /**
+   * @inheritDoc
+   */
 
   public function getSalt()
    {
@@ -320,6 +311,7 @@ class User implements UserInterface
   /**
    * @inheritDoc
    */
+
   public function getRoles()
    {
     return array($this->getRole());
@@ -328,6 +320,7 @@ class User implements UserInterface
   /**
    * @inheritDoc
    */
-  public function eraseCredentials() { }
 
- }
+  public function eraseCredentials() {}
+
+}

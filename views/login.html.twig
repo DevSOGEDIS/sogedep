@@ -1,83 +1,31 @@
-<!doctype html>
-<html>
+{% extends 'layout.html.twig' %}
 
-<head>
- <meta charset="utf-8" />
- <meta http-equiv="X-UA-Compatible" content="IE=edge" />
- <meta name="viewport" content="width=device-width, initial-scale=1" />
- <link href="{{ asset('/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
- <link href="{{ asset('/css/site.css') }}" rel="stylesheet" />
- <title>SOGEDEP - Se connecter</title> 
- <meta name="description" content="{% block metadescription %}{% endblock %}" />
- <meta name="keywords" content="{% block metakeywords %}{% endblock %}" />
- <meta name="robots" content="index, follow, all" />
-</head>
+{% block title %}User authentication{% endblock %}
 
-<body>
-
- <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-   <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
-     <span class="icon-bar"></span>
-     <span class="icon-bar"></span>
-     <span class="icon-bar"></span>                        
-    </button>
-    <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('/images/logo_menu.png') }}" alt"Sogedep" style="width: 120px;"/></a>
-   </div>
-   {{ include("menu_site.html.twig") }}
-  </div>
- </nav>
-
- <div class="container">
-  <center><h1>Se connecter</h1></center>
-  <div class="row">
-   <div class="col-sm-12 ">
-    <h2 class="text-center">{{ block('title') }}</h2>
-    {% if error %}
-     <div class="alert alert-danger">
-      <strong>Connection impossible</strong><br />
-      Utilisateur/mot de passe inconnu
-     </div>
-    {% endif %}
-
-    <div class="well">
-     <form class="form-signin form-horizontal" role="form" action="{{ path('login_check') }}" method="post">
-      <div class="form-group">
-       <div class="col-sm-6 col-sm-offset-3">
-   	    <label for="user">Email :</label>
-        <input type="text" id="user" name="_username" value="{{ last_username }}" class="form-control" placeholder="Email" required autofocus />
-       </div>
-      </div>
-
-      <div class="form-group">
-       <div class="col-sm-6 col-sm-offset-3">
-   	    <label for="pwd">Mot de passe :</label>
-        <input type="password" id="pwd" name="_password" class="form-control" placeholder="Password" required />
-       </div>
-      </div>
-
-      <div class="form-group">
-       <div class="col-sm-6 col-sm-offset-3">
-        <center>
-         <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Se connecter
-         </button>
-        </center>
-       </div>
-      </div>
-     </form>
-    </div>
-   </div>
-  </div>
-  <br /><br />
-  <footer>
-   &copy; SOGEDEP | 
-   <a href="{{ path('contact') }}" title="Nous contacter">Nous contacter</a> | 
-   <a href="{{ path('mentions-legales') }}" title="Mentions l&eacute;gales">Mentions l&eacute;gales</a> | 
-   <a href="https://www.sogedis.fr/" target="_blank">Sogedis</a>
-  </footer> 
- </div>
- <script src="{{ asset('/lib/jquery/jquery.min.js') }}"></script>
- <script src="{{ asset('/lib/bootstrap/js/bootstrap.min.js') }}"></script>
-</body>
-</html>
+{% block body %}
+<h2 class="text-center">{{ block('title') }}</h2>
+{% if error %}
+<div class="alert alert-danger">
+    <strong>Login failed!</strong> {{ error }}
+</div>
+{% endif %}
+<div class="well">
+    <form class="form-signin form-horizontal" role="form" action="{{ path('login_check') }}" method="post">
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+            <input type="text" name="_username" value="{{ last_username }}" class="form-control" placeholder="Enter your username" required autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                <input type="password" name="_password" class="form-control" placeholder="Enter your password" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
