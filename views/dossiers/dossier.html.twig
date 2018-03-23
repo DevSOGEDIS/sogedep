@@ -1,0 +1,17 @@
+{% extends "layout_prestataires.html.twig" %}
+
+{% block title %}Dossier {{ dossier.id }}{% endblock %}
+
+{% block body %}
+
+<h4>Client : </h4>{{ dossier.iduser }}
+<h4>Prestataire : </h4>{{ dossier.idprestataire }}
+
+<h3>Historique</h3>
+{% for historique in historiques %}
+ <strong>{{ historique.iduser }}</strong> : {{ historique.commentaire }}<br>
+{% else %}
+ No historiques yet.
+{% endfor %}
+
+{% endblock %}

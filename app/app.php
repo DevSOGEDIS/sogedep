@@ -29,17 +29,26 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
         ),
     ),
 ));
+$app->register(new Silex\Provider\FormServiceProvider());
+$app->register(new Silex\Provider\LocaleServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider());
 
 // Register services
-$app['dao.article'] = function ($app) {
-    return new SOGEDEP\DAO\ArticleDAO($app['db']);
-};
-$app['dao.user'] = function ($app) {
-    return new SOGEDEP\DAO\UserDAO($app['db']);
-};
-$app['dao.comment'] = function ($app) {
-    $commentDAO = new SOGEDEP\DAO\CommentDAO($app['db']);
-    $commentDAO->setArticleDAO($app['dao.article']);
-    $commentDAO->setUserDAO($app['dao.user']);
-    return $commentDAO;
-};
+$app['dao.user'] = function ($app)
+ {
+  return new SOGEDEP\DAO\UserDAO($app['db']);
+ };
+
+$app['dao.dossier'] = function ($app)
+ {
+  return new SOGEDEP\DAO\DossierDAO($app['db']);
+ };
+
+$app['dao.historique'] = function ($app)
+ {
+  $historiqueDAO = new SOGEDEP\DAO\HistoriqueDAO($app['db']);
+  $historiqueDAO->setDossierDAO($app['dao.dossier']);
+  $historiqueDAO->setUserDAO($app['dao.user']);
+  return $historiqueDAO;
+ };
+ 

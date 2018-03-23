@@ -64,3 +64,51 @@ $app->get('/demande-de-depannage', function (Request $request) use ($app)
    'error' => $app['security.last_error']($request)
   ));
  })->bind('demande-de-depannage');
+
+// Dossiers
+$app->get('/dossiers', function () use ($app)
+ {
+  $dossiers = $app['dao.dossier']->findAll();
+  return $app['twig']->render('dossiers/index.html.twig', array('dossiers' => $dossiers));
+ })->bind('dossiers');
+
+$app->get('/dossier/{id}', function ($id) use ($app)
+ {
+  $dossier = $app['dao.dossier']->find($id);
+  $historiques = $app['dao.historique']->findAllByDossier($id);
+  return $app['twig']->render('dossiers/dossier.html.twig', array('dossier' => $dossier, 'historiques' => $historiques));
+ })->bind('dossier');
+
+$app->get('/add/dossier', function () use ($app)
+ {
+  return $app['twig']->render('dossiers/add.html.twig');
+ })->bind('adddossier');
+
+$app->get('/search/dossier', function () use ($app)
+ {
+  return $app['twig']->render('dossiers/search.html.twig');
+ })->bind('searchdossier');
+
+
+// Extra pages
+
+$app->get('/passwordgen', function() use ($app)
+ {
+  $rawPassword = 'simla';
+
+  $charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\\][{}\'";:?.>,<!@#$%^&*()-_=+|';
+  $randString = "";
+  $randStringLen = 23;
+  while(strlen($randString) < $randStringLen)
+   {
+    $randChar = substr(str_shuffle($charset), mt_rand(0, strlen($charset)), 1);
+    $randString .= $randChar;
+   }
+  $salt = $randString;
+  $encoder = $app['security.encoder.bcrypt'];
+
+  $mess = 'Ancien password = '.$rawPassword.'<br />';
+  $mess .= 'Salt = '.$salt.'<br />';
+  $mess .= 'Password = '.$encoder->encodePassword($rawPassword, $salt);
+  return $mess;
+ });
